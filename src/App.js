@@ -15,6 +15,7 @@ import React, { useEffect, useState, memo } from "react";
 import logo from "./meerut.jpg";
 import FormInput from "./components/FormInput";
 import axios from "axios";
+import Footer from "./components/footer";
 
 import "./App.css";
 
@@ -515,6 +516,7 @@ function App() {
           </Button>
         </Box>
       </Box>
+      <Footer />
     </div>
   );
 }
