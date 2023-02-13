@@ -41,6 +41,7 @@ function App() {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [error, setError] = useState(null);
+  const [base64, setBase64] = useState("");
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -118,6 +119,17 @@ function App() {
   ];
   const zonelist = ["1", "2", "3", "4"];
   const licenselist = ["Yes", "No"];
+  const handleImage = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      const base64 = reader.result;
+      setBase64(base64);
+    };
+  };
+  console.log(base64);
+
   const handleForm = (event) => {
     event.preventDefault();
     if (!ownerName) {
@@ -160,6 +172,7 @@ function App() {
       license,
       fse,
       latlong,
+      base64,
     };
     console.log(postdata);
     axios.post("/form/saveform", postdata);
@@ -373,6 +386,15 @@ function App() {
             disabled={false}
             required={true}
           />
+
+          <div className="upload">
+            <FormLabel sx={{ mb: 1, color: "black" }} htmlFor="for">
+              Property Image
+            </FormLabel>
+            <div className="imageinput">
+              <input onChange={(event) => handleImage(event)} type="file" />
+            </div>
+          </div>
           <FormControl>
             <FormLabel sx={{ mb: 1, color: "black" }} htmlFor="for">
               Business Category

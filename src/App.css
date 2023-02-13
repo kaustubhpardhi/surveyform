@@ -23,3 +23,17 @@
     align-items: flex-start;
   }
 }
+
+.upload {
+  display: flex;
+  flex-direction: column;
+}
+.imageinput {
+  border: 1px solid lightgray;
+  width: 75%;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
