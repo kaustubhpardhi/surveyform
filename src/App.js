@@ -16,7 +16,7 @@ import logo from "./meerut.jpg";
 import FormInput from "./components/FormInput";
 import axios from "axios";
 import Footer from "./components/footer";
-import bob from "./bob.png";
+import bob from "./bob.webp";
 import "./App.css";
 
 function App() {
