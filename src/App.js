@@ -16,7 +16,7 @@ import logo from "./meerut.jpg";
 import FormInput from "./components/FormInput";
 import axios from "axios";
 import Footer from "./components/footer";
-
+import bob from "./bob.png";
 import "./App.css";
 
 function App() {
@@ -203,22 +203,28 @@ function App() {
   return (
     <div className="App">
       <div className="header">
-        <Box mb={2}>
-          <Typography
-            variant="h1"
-            sx={{
-              fontSize: "25px",
-              fontWeight: "700",
-              mt: 2,
-              ml: 3,
-              color: "green",
-            }}
-            gutterBottom
-          >
-            MEERUT NAGAR NIGAM MERCHANT DATABASE ONBORDING
-          </Typography>
-        </Box>
-        <img src={logo} alt="logo" className="logo"></img>
+        <div className="sub">
+          <img src={logo} alt="logo" className="logo"></img>
+
+          <Box mb={2} className="logo-title">
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: "25px",
+                fontWeight: "700",
+                mt: 2,
+                ml: 3,
+                color: "green",
+              }}
+              gutterBottom
+            >
+              MEERUT NAGAR NIGAM MERCHANT DATABASE ONBORDING
+            </Typography>
+          </Box>
+        </div>
+        <div>
+          <img src={bob} alt="bob" className="bob"></img>
+        </div>
       </div>
 
       <Box
