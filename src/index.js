@@ -5,6 +5,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
+import { BrowserRouter } from "react-router-dom";
+
 import {
   deepOrange,
   lightBlue,
@@ -63,7 +65,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
 );
