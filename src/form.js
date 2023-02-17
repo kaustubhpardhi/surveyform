@@ -46,6 +46,7 @@ function Form() {
   const [longitude, setLongitude] = useState(null);
   const [error, setError] = useState(null);
   const [base64, setBase64] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -134,7 +135,7 @@ function Form() {
   };
   console.log(base64);
 
-  const handleForm = (event) => {
+  const handleForm = async (event) => {
     event.preventDefault();
     if (!ownerName) {
       return alert("Owner Name Not Found");
@@ -178,11 +179,24 @@ function Form() {
       latlong,
       base64,
     };
-    console.log(postdata);
-    axios.post("/form/saveform", postdata);
-    resetForm();
-    navigate("/success");
-    // alert("Form Submitted Successfully");
+
+    try {
+      // Set loading to true
+      setLoading(true);
+
+      // Make the post request and wait for the response
+      const response = await axios.post("/form/saveform", postdata);
+
+      // Reset the form and navigate to the success page
+      resetForm();
+      navigate("/success");
+    } catch (error) {
+      console.log(error);
+      alert("Form submission failed");
+    } finally {
+      // Set loading back to false after the response is received
+      setLoading(false);
+    }
   };
   const resetForm = () => {
     setOwnerName("");
@@ -204,6 +218,21 @@ function Form() {
     setFse("");
     setGender("");
   };
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "10rem",
+          height: "100%",
+        }}
+      >
+        <CircularProgress />
+      </div>
+    );
+  }
 
   return (
     <div className="App">
