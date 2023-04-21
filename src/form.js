@@ -252,7 +252,7 @@ function Form() {
               }}
               gutterBottom
             >
-              MEERUT NAGAR NIGAM MERCHANT DATABASE ONBORDING
+              MEERUT NAGAR NIGAM MERCHANT DATABASE ONBOARDING
             </Typography>
           </Box>
         </div>
