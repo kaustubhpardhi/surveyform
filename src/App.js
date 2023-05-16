@@ -23,6 +23,26 @@ import Success from "./components/success";
 import { useNavigate } from "react-router-dom";
 import Form from "./form";
 function App() {
+  useEffect(() => {
+    // Set Cache-Control: no-store header
+    const setNoStoreHeader = () => {
+      const meta = document.createElement("meta");
+      meta.httpEquiv = "Cache-Control";
+      meta.content = "no-store";
+      document.head.appendChild(meta);
+    };
+
+    // Set Pragma: no-cache header
+    const setNoCacheHeader = () => {
+      const meta = document.createElement("meta");
+      meta.httpEquiv = "Pragma";
+      meta.content = "no-cache";
+      document.head.appendChild(meta);
+    };
+
+    setNoStoreHeader();
+    setNoCacheHeader();
+  }, []);
   return (
     <div className="App">
       <Routes>

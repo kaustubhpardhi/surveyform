@@ -47,7 +47,11 @@ function Form() {
   const [error, setError] = useState(null);
   const [base64, setBase64] = useState("");
   const [loading, setLoading] = useState(false);
-
+  // const [selectedZone, setSelectedZone] = useState("");
+  // const [selectedWard, setSelectedWard] = useState("");
+  // const [selectedArea, setSelectedArea] = useState("");
+  // const [wardOptions, setWardOptions] = useState([]);
+  // const [areaOptions, setAreaOptions] = useState([]);
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -122,6 +126,149 @@ function Form() {
     "Minibus",
     "Bus",
   ];
+  // const zones = {
+  //   1: {
+  //     wards: {
+  //       1: [
+  //         "Nayi Basti Lallapura",
+  //         "Bhimnagar",
+  //         "Vikas Nagar",
+  //         "Shivhari Mandir",
+  //         "Siddarth Pooram",
+  //         "Nayi Basti Mohan Ram Mandir",
+  //         "Ekta Vihar",
+  //       ],
+  //       2: [
+  //         "Maliyana",
+  //         "Islam Nagar",
+  //         "Sanjay Colony",
+  //         "Jaswant Sugar Mill",
+  //         "Dakshin Bhag",
+  //         "Holi Chowk",
+  //         "Jaswant Nagar",
+  //         "Maliyana Road Islam Nagar",
+  //         "Devpark",
+  //         "Maliyana Bagpat Road",
+  //         "Shantikunj",
+  //         "Shakti Nagar",
+  //         "Nandani Kunj",
+  //         "Ganga Colony",
+  //       ],
+  //       3: ["Bhagwat Pura", "Laxmanpuri", "Horam Nagar", "Ganesh Puri"],
+  //       4: [
+  //         "Mayur Vihar",
+  //         "Ansal Colony Surya Dev Vihar",
+  //         "E-Block Shastrinagar",
+  //         "Surya Vihar",
+  //         "Chanakyapuri",
+  //         "Sai Nagar",
+  //         "Sher Gadi",
+  //         "Laxmi Vihar",
+  //         "9-Cloud",
+  //         "Golden Tower",
+  //         "S2S Carnation",
+  //         "Gyan Niketan",
+  //         "Chandrakala Enclave",
+  //         "Agrasen Vihar",
+  //         "Ashok Vihar",
+  //       ],
+  //       5: ["Shivlokpuri", "Chowk Mohalla", "Sadanpuri", "Mehendi Mohalla", ""],
+  //       6: ["Area 1", "Area 2", "Area 3"],
+  //       7: ["Area 1", "Area 2", "Area 3"],
+  //       8: ["Area 1", "Area 2", "Area 3"],
+  //       9: ["Area 1", "Area 2", "Area 3"],
+  //       10: ["Area 1", "Area 2", "Area 3"],
+  //       11: ["Area 1", "Area 2", "Area 3"],
+  //       12: ["Area 1", "Area 2", "Area 3"],
+  //       13: ["Area 1", "Area 2", "Area 3"],
+  //       14: ["Area 1", "Area 2", "Area 3"],
+  //       15: ["Area 1", "Area 2", "Area 3"],
+  //       16: ["Area 1", "Area 2", "Area 3"],
+  //       17: ["Area 1", "Area 2", "Area 3"],
+  //       18: ["Area 1", "Area 2", "Area 3"],
+  //       19: ["Area 1", "Area 2", "Area 3"],
+  //       20: ["Area 1", "Area 2", "Area 3"],
+  //       21: ["Area 1", "Area 2", "Area 3"],
+  //       22: ["Area 1", "Area 2", "Area 3"],
+  //       23: ["Area 1", "Area 2", "Area 3"],
+  //       24: ["Area 1", "Area 2", "Area 3"],
+  //       25: ["Area 1", "Area 2", "Area 3"],
+  //       26: ["Area 1", "Area 2", "Area 3"],
+  //       27: ["Area 1", "Area 2", "Area 3"],
+  //       28: ["Area 1", "Area 2", "Area 3"],
+  //       29: ["Area 1", "Area 2", "Area 3"],
+  //       30: ["Area 1", "Area 2", "Area 3"],
+  //     },
+  //   },
+  //   2: {
+  //     wards: {
+  //       31: ["Area 1", "Area 2", "Area 3"],
+  //       32: ["Area 4", "Area 5", "Area 6"],
+  //       33: ["Area 1", "Area 2", "Area 3"],
+  //       34: ["Area 1", "Area 2", "Area 3"],
+  //       35: ["Area 1", "Area 2", "Area 3"],
+  //       36: ["Area 1", "Area 2", "Area 3"],
+  //       37: ["Area 1", "Area 2", "Area 3"],
+  //       38: ["Area 1", "Area 2", "Area 3"],
+  //       39: ["Area 1", "Area 2", "Area 3"],
+  //       40: ["Area 1", "Area 2", "Area 3"],
+  //       41: ["Area 1", "Area 2", "Area 3"],
+  //       42: ["Area 1", "Area 2", "Area 3"],
+  //       43: ["Area 1", "Area 2", "Area 3"],
+  //       44: ["Area 1", "Area 2", "Area 3"],
+  //       45: ["Area 1", "Area 2", "Area 3"],
+  //       46: ["Area 1", "Area 2", "Area 3"],
+  //       47: ["Area 1", "Area 2", "Area 3"],
+  //       48: ["Area 1", "Area 2", "Area 3"],
+  //       49: ["Area 1", "Area 2", "Area 3"],
+  //       50: ["Area 1", "Area 2", "Area 3"],
+  //       51: ["Area 1", "Area 2", "Area 3"],
+  //       52: ["Area 1", "Area 2", "Area 3"],
+  //       53: ["Area 1", "Area 2", "Area 3"],
+  //       54: ["Area 1", "Area 2", "Area 3"],
+  //       55: ["Area 1", "Area 2", "Area 3"],
+  //       56: ["Area 1", "Area 2", "Area 3"],
+  //       57: ["Area 1", "Area 2", "Area 3"],
+  //       58: ["Area 1", "Area 2", "Area 3"],
+  //       59: ["Area 1", "Area 2", "Area 3"],
+  //       60: ["Area 1", "Area 2", "Area 3"],
+  //     },
+  //   },
+  //   3: {
+  //     wards: {
+  //       61: ["Area 1", "Area 2", "Area 3"],
+  //       62: ["Area 4", "Area 5", "Area 6"],
+  //       63: ["Area 1", "Area 2", "Area 3"],
+  //       64: ["Area 1", "Area 2", "Area 3"],
+  //       65: ["Area 1", "Area 2", "Area 3"],
+  //       66: ["Area 1", "Area 2", "Area 3"],
+  //       67: ["Area 1", "Area 2", "Area 3"],
+  //       68: ["Area 1", "Area 2", "Area 3"],
+  //       69: ["Area 1", "Area 2", "Area 3"],
+  //       70: ["Area 1", "Area 2", "Area 3"],
+  //       71: ["Area 1", "Area 2", "Area 3"],
+  //       72: ["Area 1", "Area 2", "Area 3"],
+  //       73: ["Area 1", "Area 2", "Area 3"],
+  //       74: ["Area 1", "Area 2", "Area 3"],
+  //       75: ["Area 1", "Area 2", "Area 3"],
+  //       76: ["Area 1", "Area 2", "Area 3"],
+  //       77: ["Area 1", "Area 2", "Area 3"],
+  //       78: ["Area 1", "Area 2", "Area 3"],
+  //       79: ["Area 1", "Area 2", "Area 3"],
+  //       80: ["Area 1", "Area 2", "Area 3"],
+  //       81: ["Area 1", "Area 2", "Area 3"],
+  //       82: ["Area 1", "Area 2", "Area 3"],
+  //       83: ["Area 1", "Area 2", "Area 3"],
+  //       84: ["Area 1", "Area 2", "Area 3"],
+  //       85: ["Area 1", "Area 2", "Area 3"],
+  //       86: ["Area 1", "Area 2", "Area 3"],
+  //       87: ["Area 1", "Area 2", "Area 3"],
+  //       88: ["Area 1", "Area 2", "Area 3"],
+  //       89: ["Area 1", "Area 2", "Area 3"],
+  //       90: ["Area 1", "Area 2", "Area 3"],
+  //     },
+  //   },
+  // };
   const zonelist = ["1", "2", "3", "4"];
   const licenselist = ["Yes", "No"];
   const handleImage = (event) => {
@@ -134,7 +281,25 @@ function Form() {
     };
   };
   console.log(base64);
+  // const handleZoneChange = (e) => {
+  //   const zoneId = e.target.value;
+  //   setSelectedZone(zoneId);
+  //   setSelectedWard("");
+  //   setSelectedArea("");
+  //   setWardOptions(Object.keys(zones[zoneId].wards));
+  //   setAreaOptions([]);
+  // };
 
+  // const handleWardChange = (e) => {
+  //   const wardId = e.target.value;
+  //   setSelectedWard(wardId);
+  //   setSelectedArea("");
+  //   setAreaOptions(zones[selectedZone].wards[wardId]);
+  // };
+
+  // const handleAreaChange = (e) => {
+  //   setSelectedArea(e.target.value);
+  // };
   const handleForm = async (event) => {
     event.preventDefault();
     if (!ownerName) {
@@ -282,6 +447,82 @@ function Form() {
             mb: 2,
           }}
         >
+          {/* <FormControl>
+            <FormLabel sx={{ mb: 1, color: "black" }} htmlFor="for">
+              Select Zone
+            </FormLabel>
+            <Select
+              id="city"
+              placeholder="Choose"
+              sx={{ width: "75%" }}
+              color="third"
+              size="small"
+              defaultValue={0}
+              value={selectedZone}
+              onChange={handleZoneChange}
+            >
+              <MenuItem value={0} disabled>
+                Choose
+              </MenuItem>
+              {Object.keys(zones).map((zoneId) => (
+                <MenuItem value={zoneId} key={zoneId}>
+                  Zone {zoneId}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          {selectedZone && (
+            <FormControl>
+              <FormLabel sx={{ mb: 1, color: "black" }} htmlFor="for">
+                Select Ward
+              </FormLabel>
+              <Select
+                id="city"
+                placeholder="Choose"
+                sx={{ width: "75%" }}
+                color="third"
+                size="small"
+                defaultValue={0}
+                value={selectedWard}
+                onChange={handleWardChange}
+              >
+                <MenuItem value={0} disabled>
+                  Choose
+                </MenuItem>
+                {wardOptions.map((wardId) => (
+                  <MenuItem value={wardId} key={wardId}>
+                    Ward {wardId}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          )}
+          {selectedWard && (
+            <FormControl>
+              <FormLabel sx={{ mb: 1, color: "black" }} htmlFor="for">
+                Select Area
+              </FormLabel>
+              <Select
+                id="city"
+                placeholder="Choose"
+                sx={{ width: "75%" }}
+                color="third"
+                size="small"
+                defaultValue={0}
+                value={selectedArea}
+                onChange={handleAreaChange}
+              >
+                <MenuItem value={0} disabled>
+                  Choose
+                </MenuItem>
+                {areaOptions.map((areaName) => (
+                  <MenuItem value={areaName} key={areaName}>
+                    {areaName}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          )} */}
           <FormInput
             value={ownerName}
             onChange={setOwnerName}
