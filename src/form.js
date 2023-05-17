@@ -273,6 +273,16 @@ function Form() {
   const licenselist = ["Yes", "No"];
   const handleImage = (event) => {
     const file = event.target.files[0];
+
+    // Check if the selected file is an image file
+    if (!file.type.startsWith("image/")) {
+      alert("Please select an image file.");
+
+      // Reset the value of the file input to empty
+      event.target.value = "";
+      return;
+    }
+
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
@@ -280,6 +290,7 @@ function Form() {
       setBase64(base64);
     };
   };
+
   console.log(base64);
   // const handleZoneChange = (e) => {
   //   const zoneId = e.target.value;
