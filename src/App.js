@@ -22,6 +22,9 @@ import { Routes, Route } from "react-router-dom";
 import Success from "./components/success";
 import { useNavigate } from "react-router-dom";
 import Form from "./form";
+import Login from "./components/login";
+import RequireAuth from "./components/RequireAuth";
+
 function App() {
   useEffect(() => {
     // Set Cache-Control: no-store header
@@ -46,10 +49,22 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Form />} />
+        <Route
+          path="/"
+          element={
+            <Form />
+
+            // <RequireAuth>
+            //   <Form />
+            // </RequireAuth>
+          }
+        />
       </Routes>
       <Routes>
         <Route path="/success" element={<Success />} />
+      </Routes>
+      <Routes>
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );

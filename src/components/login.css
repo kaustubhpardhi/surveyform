@@ -1,0 +1,24 @@
+.loginImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginImg .logo {
+  width: 50%;
+  height: 50%; /* Adjust the desired width */
+}
+
+@media only screen and (max-width: 500px) {
+  .loginImg {
+    height: 100px;
+    margin-left: 0;
+    width: 200px;
+  }
+
+  .logo {
+    width: 150px;
+    height: 150px;
+    margin-top: 30px;
+  }
+}

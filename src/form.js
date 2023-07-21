@@ -23,6 +23,8 @@ import Success from "./components/success";
 import { useNavigate } from "react-router-dom";
 
 function Form() {
+  const userData = JSON.parse(localStorage.getItem("user"));
+  const surveyorId = userData ? userData.surveyorId : null;
   const navigate = useNavigate();
   const [ownerName, setOwnerName] = useState();
   const [shopOwnerName, setShopOwnerName] = useState();
@@ -106,10 +108,6 @@ function Form() {
     "Ice Factory,Ice Cream Factory",
     "Ice Company",
     "Builders(registered)",
-    "Country Liquor per Shop",
-    "Foreign Liquor per Shop",
-    "Bar/Beer Shop",
-    "Model Shop",
     "Departmental Shop Grocery 10x10",
     "Departmental Shop Grocery Above 10x10",
     "Private Mobile Phone Tower",
@@ -121,10 +119,6 @@ function Form() {
     "Flour Mill",
     "Latte Machine",
     "Oil Speller",
-    "Auto Rickshaw 4 Seater",
-    "Auto Ricshaw 7 Seater ",
-    "Minibus",
-    "Bus",
   ];
   const zones = {
     "Head Quarter 1": {
@@ -1117,6 +1111,9 @@ function Form() {
   };
   const handleForm = async (event) => {
     event.preventDefault();
+    // if (!surveyorId) {
+    //   return alert("Surveyor ID Not Found");
+    // }
     if (!ownerName) {
       return alert("Owner Name Not Found");
     }
@@ -1159,6 +1156,7 @@ function Form() {
       fse,
       latlong,
       base64,
+      surveyorId,
     };
 
     try {
